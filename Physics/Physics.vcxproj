@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{3be92d5b-fcbb-4c25-aebd-4027e4cc87d7}</ProjectGuid>
+    <RootNamespace>Physics</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)' == 'Debug'">
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)' == 'Release'">
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+
+  <PropertyGroup Label="UserMacros">
+    <SfmlVersion>3.1.0</SfmlVersion>
+    <SfmlVendorDir>$(MSBuildProjectDirectory)\..\vendor</SfmlVendorDir>
+    <SfmlDir>$(SfmlVendorDir)\SFML-$(SfmlVersion)</SfmlDir>
+    <SfmlArchive>SFML-$(SfmlVersion)-windows-vc17-64-bit.zip</SfmlArchive>
+    <SfmlSuffix Condition="'$(Configuration)' == 'Debug'">-d</SfmlSuffix>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutDir>$(MSBuildProjectDirectory)\..\build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(OutDir)obj\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <WarningLevel>Level4</WarningLevel>
+      <AdditionalIncludeDirectories>$(SfmlDir)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(SfmlDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics$(SfmlSuffix).lib;sfml-window$(SfmlSuffix).lib;sfml-system$(SfmlSuffix).lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <SfmlModule Include="graphics;window;system" />
+  </ItemGroup>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Target Name="RestoreSfml" BeforeTargets="PrepareForBuild" Condition="'$(DesignTimeBuild)' != 'true'">
+    <ItemGroup>
+      <SfmlRequiredFile Include="$(SfmlDir)\include\SFML\Graphics.hpp" />
+      <SfmlRequiredFile Include="@(SfmlModule->'$(SfmlDir)\lib\sfml-%(Identity)$(SfmlSuffix).lib')" />
+      <SfmlRequiredFile Include="@(SfmlModule->'$(SfmlDir)\bin\sfml-%(Identity)$(SfmlSuffix)-3.dll')" />
+      <SfmlMissingFile Include="@(SfmlRequiredFile)" Condition="!Exists('%(SfmlRequiredFile.Identity)')" />
+    </ItemGroup>
+    <DownloadFile Condition="'@(SfmlMissingFile)' != '' and !Exists('$(SfmlVendorDir)\$(SfmlArchive)')"
+                  SourceUrl="https://www.sfml-dev.org/files/$(SfmlArchive)"
+                  DestinationFolder="$(SfmlVendorDir)"
+                  DestinationFileName="$(SfmlArchive)" />
+    <Unzip Condition="'@(SfmlMissingFile)' != ''"
+           SourceFiles="$(SfmlVendorDir)\$(SfmlArchive)"
+           DestinationFolder="$(SfmlVendorDir)" />
+    <Error Condition="'@(SfmlMissingFile)' != '' and !Exists('%(SfmlMissingFile.Identity)')"
+           Text="Missing SFML file: %(SfmlMissingFile.Identity). Use the Visual C++ 17 (2022) 64-bit SDK." />
+  </Target>
+  <Target Name="CopySfmlDlls" AfterTargets="Link" DependsOnTargets="RestoreSfml" Condition="'$(DesignTimeBuild)' != 'true'">
+    <Copy SourceFiles="@(SfmlModule->'$(SfmlDir)\bin\sfml-%(Identity)$(SfmlSuffix)-3.dll')"
+          DestinationFolder="$(OutDir)"
+          SkipUnchangedFiles="true" />
+  </Target>
+</Project>

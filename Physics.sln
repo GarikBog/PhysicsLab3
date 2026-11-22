@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37827.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Physics", "Physics\Physics.vcxproj", "{3BE92D5B-FCBB-4C25-AEBD-4027E4CC87D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3BE92D5B-FCBB-4C25-AEBD-4027E4CC87D7}.Debug|x64.ActiveCfg = Debug|x64
+		{3BE92D5B-FCBB-4C25-AEBD-4027E4CC87D7}.Debug|x64.Build.0 = Debug|x64
+		{3BE92D5B-FCBB-4C25-AEBD-4027E4CC87D7}.Debug|x64.Deploy.0 = Debug|x64
+		{3BE92D5B-FCBB-4C25-AEBD-4027E4CC87D7}.Release|x64.ActiveCfg = Release|x64
+		{3BE92D5B-FCBB-4C25-AEBD-4027E4CC87D7}.Release|x64.Build.0 = Release|x64
+		{3BE92D5B-FCBB-4C25-AEBD-4027E4CC87D7}.Release|x64.Deploy.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D530AA43-BB59-4EBE-A61C-DBBDB358D5A0}
+	EndGlobalSection
+EndGlobal
