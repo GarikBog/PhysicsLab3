@@ -1,0 +1,62 @@
+PHYSICSLAB3_SNAPSHOT 1
+# Required tunneling comparison: identical initial state for all modes.
+# Projectile 8x8, v=(2000,0) px/s; wall thickness 10 px; base 60 Hz.
+# Multi-rate: fast group 240 Hz. Resume after loading.
+time_step 0.0166666675
+mode MultyRate
+paused true
+playback_speed 0.1
+
+object 0
+position 60 176
+size 8 8
+mass 1
+velocity 2000 0
+force 0 0
+visible true
+end
+
+object 1
+position 0 0
+size 640 16
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 2
+position 0 344
+size 640 16
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 3
+position 0 16
+size 16 328
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 4
+position 624 16
+size 16 328
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 5
+position 310 64
+size 10 232
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end

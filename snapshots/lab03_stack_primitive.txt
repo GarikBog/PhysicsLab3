@@ -1,0 +1,206 @@
+PHYSICSLAB3_SNAPSHOT 1
+# Three columns of five 24x24 blocks on 48x48 fixed pedestals, plus 4 boundary walls.
+# Each moving body: mass=1, force=(0,180); gravity acceleration 180 px/s^2.
+# Perfectly elastic solver (restitution=1): this is a stability/limitations experiment, not a settling demonstration.
+time_step 0.0166666675
+mode Primitive
+paused true
+playback_speed 0.5
+
+object 0
+position 124 272
+size 24 24
+mass 1
+velocity 0 0
+force 0 180
+visible true
+end
+
+object 1
+position 124 246
+size 24 24
+mass 1
+velocity 0 0
+force 0 180
+visible true
+end
+
+object 2
+position 124 220
+size 24 24
+mass 1
+velocity 0 0
+force 0 180
+visible true
+end
+
+object 3
+position 124 194
+size 24 24
+mass 1
+velocity 0 0
+force 0 180
+visible true
+end
+
+object 4
+position 124 168
+size 24 24
+mass 1
+velocity 0 0
+force 0 180
+visible true
+end
+
+object 5
+position 284 272
+size 24 24
+mass 1
+velocity 0 0
+force 0 180
+visible true
+end
+
+object 6
+position 284 246
+size 24 24
+mass 1
+velocity 0 0
+force 0 180
+visible true
+end
+
+object 7
+position 284 220
+size 24 24
+mass 1
+velocity 0 0
+force 0 180
+visible true
+end
+
+object 8
+position 284 194
+size 24 24
+mass 1
+velocity 0 0
+force 0 180
+visible true
+end
+
+object 9
+position 284 168
+size 24 24
+mass 1
+velocity 0 0
+force 0 180
+visible true
+end
+
+object 10
+position 444 272
+size 24 24
+mass 1
+velocity 0 0
+force 0 180
+visible true
+end
+
+object 11
+position 444 246
+size 24 24
+mass 1
+velocity 0 0
+force 0 180
+visible true
+end
+
+object 12
+position 444 220
+size 24 24
+mass 1
+velocity 0 0
+force 0 180
+visible true
+end
+
+object 13
+position 444 194
+size 24 24
+mass 1
+velocity 0 0
+force 0 180
+visible true
+end
+
+object 14
+position 444 168
+size 24 24
+mass 1
+velocity 0 0
+force 0 180
+visible true
+end
+
+object 15
+position 0 0
+size 640 16
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 16
+position 0 344
+size 640 16
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 17
+position 0 16
+size 16 328
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 18
+position 624 16
+size 16 328
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 19
+position 112 296
+size 48 48
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 20
+position 272 296
+size 48 48
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 21
+position 432 296
+size 48 48
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end

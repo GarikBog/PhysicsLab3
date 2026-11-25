@@ -1,0 +1,15 @@
+{
+"projectile":[
+{"scene":"lab01_primitive60","x":326.666717529,"vx":2000,"sweep_hit_seconds":0.120999999344,"contacts":0},
+{"scene":"lab01_ccd60","x":277.333282471,"vx":-2000,"sweep_hit_seconds":0.120999999344,"contacts":1},
+{"scene":"lab01_multirate60","x":285.333312988,"vx":-2000,"sweep_hit_seconds":0.120999999344,"contacts":0},
+{"scene":"lab01_primitive240","x":285.333312988,"vx":-2000,"sweep_hit_seconds":0.120999999344,"contacts":0}
+],
+"crowded":[
+{"scene":"lab02_many_primitive","steps":3000,"repeats":2,"repeatable":true,"max_penetration_px":24,"fully_escaped_bodies":3,"ccd_limit_hits":0},
+{"scene":"lab02_many_ccd","steps":3000,"repeats":2,"repeatable":true,"max_penetration_px":0,"fully_escaped_bodies":0,"ccd_limit_hits":0},
+{"scene":"lab02_many_multirate","steps":3000,"repeats":2,"repeatable":true,"max_penetration_px":16.7274589539,"fully_escaped_bodies":0,"ccd_limit_hits":0},
+{"scene":"lab03_stack_primitive","steps":3000,"repeats":2,"repeatable":true,"max_penetration_px":3.99188232422,"fully_escaped_bodies":0,"ccd_limit_hits":0},
+{"scene":"lab03_stack_ccd","steps":3000,"repeats":2,"repeatable":true,"max_penetration_px":3.0517578125e-05,"fully_escaped_bodies":0,"ccd_limit_hits":0},
+{"scene":"lab03_stack_multirate","steps":3000,"repeats":2,"repeatable":true,"max_penetration_px":3.99188232422,"fully_escaped_bodies":0,"ccd_limit_hits":0}
+]}

@@ -1,0 +1,278 @@
+PHYSICSLAB3_SNAPSHOT 1
+# 20 ordinary bodies (24x24), 3 projectiles (8x8), 3 internal fixed blocks (48x48), 4 boundary walls.
+# No initial penetration; no random generation; no external forces.
+# Base 60 Hz; use Playback 1x for timing measurements.
+time_step 0.0166666675
+mode Primitive
+paused true
+playback_speed 1
+
+object 0
+position 64 60
+size 24 24
+mass 1
+velocity 55 25
+force 0 0
+visible true
+end
+
+object 1
+position 64 116
+size 24 24
+mass 1
+velocity 72 -36
+force 0 0
+visible true
+end
+
+object 2
+position 64 172
+size 24 24
+mass 1
+velocity 89 47
+force 0 0
+visible true
+end
+
+object 3
+position 64 228
+size 24 24
+mass 1
+velocity 106 -58
+force 0 0
+visible true
+end
+
+object 4
+position 64 284
+size 24 24
+mass 1
+velocity 58 69
+force 0 0
+visible true
+end
+
+object 5
+position 136 60
+size 24 24
+mass 1
+velocity 75 -35
+force 0 0
+visible true
+end
+
+object 6
+position 136 116
+size 24 24
+mass 1
+velocity 92 46
+force 0 0
+visible true
+end
+
+object 7
+position 136 172
+size 24 24
+mass 1
+velocity 109 -57
+force 0 0
+visible true
+end
+
+object 8
+position 136 228
+size 24 24
+mass 1
+velocity 61 68
+force 0 0
+visible true
+end
+
+object 9
+position 136 284
+size 24 24
+mass 1
+velocity 78 -34
+force 0 0
+visible true
+end
+
+object 10
+position 416 60
+size 24 24
+mass 1
+velocity -95 45
+force 0 0
+visible true
+end
+
+object 11
+position 416 116
+size 24 24
+mass 1
+velocity -112 -56
+force 0 0
+visible true
+end
+
+object 12
+position 416 172
+size 24 24
+mass 1
+velocity -64 67
+force 0 0
+visible true
+end
+
+object 13
+position 416 228
+size 24 24
+mass 1
+velocity -81 -33
+force 0 0
+visible true
+end
+
+object 14
+position 416 284
+size 24 24
+mass 1
+velocity -98 44
+force 0 0
+visible true
+end
+
+object 15
+position 504 60
+size 24 24
+mass 1
+velocity -115 -55
+force 0 0
+visible true
+end
+
+object 16
+position 504 116
+size 24 24
+mass 1
+velocity -67 66
+force 0 0
+visible true
+end
+
+object 17
+position 504 172
+size 24 24
+mass 1
+velocity -84 -32
+force 0 0
+visible true
+end
+
+object 18
+position 504 228
+size 24 24
+mass 1
+velocity -101 43
+force 0 0
+visible true
+end
+
+object 19
+position 504 284
+size 24 24
+mass 1
+velocity -118 -54
+force 0 0
+visible true
+end
+
+object 20
+position 200 80
+size 8 8
+mass 0.25
+velocity 2000 0
+force 0 0
+visible true
+end
+
+object 21
+position 380 176
+size 8 8
+mass 0.25
+velocity -1800 30
+force 0 0
+visible true
+end
+
+object 22
+position 212 268
+size 8 8
+mass 0.25
+velocity 1600 -40
+force 0 0
+visible true
+end
+
+object 23
+position 0 0
+size 640 16
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 24
+position 0 344
+size 640 16
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 25
+position 0 16
+size 16 328
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 26
+position 624 16
+size 16 328
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 27
+position 296 64
+size 48 48
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 28
+position 296 156
+size 48 48
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 29
+position 296 248
+size 48 48
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end

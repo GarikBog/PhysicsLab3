@@ -1,0 +1,278 @@
+PHYSICSLAB3_SNAPSHOT 1
+# Controlled timing workload: 20 slow bodies, 3 fast bodies, 3 internal static blocks and 4 boundary walls.
+# Ordinary bodies 20x20, fast bodies 20x56, internal static blocks 40x40. Separate trajectories.
+# Base 60 Hz; Playback 1x. Reload before each measured run.
+time_step 0.0166666675
+mode CCD
+paused true
+playback_speed 1
+
+object 0
+position 48 24
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 1
+position 48 54
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 2
+position 48 84
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 3
+position 48 114
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 4
+position 48 144
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 5
+position 48 174
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 6
+position 48 204
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 7
+position 48 234
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 8
+position 48 264
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 9
+position 48 294
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 10
+position 136 24
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 11
+position 136 54
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 12
+position 136 84
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 13
+position 136 114
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 14
+position 136 144
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 15
+position 136 174
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 16
+position 136 204
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 17
+position 136 234
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 18
+position 136 264
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 19
+position 136 294
+size 20 20
+mass 1
+velocity 4 0
+force 0 0
+visible true
+end
+
+object 20
+position 430 60
+size 20 56
+mass 1
+velocity 0 2000
+force 0 0
+visible true
+end
+
+object 21
+position 500 152
+size 20 56
+mass 1
+velocity 0 -1800
+force 0 0
+visible true
+end
+
+object 22
+position 570 260
+size 20 56
+mass 1
+velocity 0 1600
+force 0 0
+visible true
+end
+
+object 23
+position 0 0
+size 640 16
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 24
+position 0 344
+size 640 16
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 25
+position 0 16
+size 16 328
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 26
+position 624 16
+size 16 328
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 27
+position 300 60
+size 40 40
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 28
+position 300 160
+size 40 40
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 29
+position 300 260
+size 40 40
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end

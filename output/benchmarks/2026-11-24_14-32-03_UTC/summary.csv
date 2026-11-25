@@ -1,0 +1,5 @@
+variant,repeats,base_hz,frame_hz,mean_ms_frame,sd_ms_frame,mean_ms_step,fast_group_substeps_frame,ccd_limit_hits_total,max_escaped_bodies,repeatable
+Primitive60,3,60,120,0.001316472,0.000020904,0.002632944,0.000000000,0,0,true
+Primitive240,3,240,120,0.005310272,0.000088943,0.002655136,0.000000000,0,0,true
+CCD60,3,60,120,0.005789167,0.000114221,0.011578333,0.000000000,0,0,true
+MultiRate60_120_240,3,60,120,0.002604261,0.000016036,0.005208522,2.000000000,0,0,true

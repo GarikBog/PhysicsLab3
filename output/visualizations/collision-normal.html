@@ -1,0 +1,83 @@
+<div id="collision-normal-demo">
+  <style>
+    #collision-normal-demo { color:var(--foreground); display:grid; gap:calc(var(--font-size-base) * .8); }
+    #collision-normal-demo .diagram { width:100%; height:300px; display:block; }
+    #collision-normal-demo .controls { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:calc(var(--font-size-base) * 1); }
+    #collision-normal-demo .values { display:flex; flex-wrap:wrap; gap:calc(var(--font-size-base) * 1); }
+    #collision-normal-demo svg text { fill:var(--foreground); font:inherit; }
+    #collision-normal-demo .a { fill:var(--viz-series-1); fill-opacity:.17; stroke:var(--viz-series-1); stroke-width:2; }
+    #collision-normal-demo .b { fill:var(--viz-series-2); fill-opacity:.17; stroke:var(--viz-series-2); stroke-width:2; }
+    #collision-normal-demo .overlap { fill:var(--foreground); fill-opacity:.13; }
+    #collision-normal-demo .normal { stroke:var(--foreground); stroke-width:2; fill:none; }
+    #collision-normal-demo .center { fill:var(--foreground); }
+  </style>
+  <div class="controls">
+    <label class="form-label">Расстояние центров по X: <span data-value="x" class="tabular-nums"></span>
+      <input class="form-range" type="range" min="1" max="12" step=".5" value="8" data-axis="x">
+    </label>
+    <label class="form-label">Расстояние центров по Y: <span data-value="y" class="tabular-nums"></span>
+      <input class="form-range" type="range" min="1" max="12" step=".5" value="2" data-axis="y">
+    </label>
+  </div>
+  <div class="values tabular-nums" aria-live="polite">
+    <span data-result="overlap"></span><span data-result="normal"></span>
+  </div>
+  <svg class="diagram" role="img" aria-label="Два квадрата со стороной 10. Показаны область пересечения и нормаль от A к B.">
+    <defs><marker id="collision-normal-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="var(--foreground)"></path></marker></defs>
+    <g data-scene></g>
+  </svg>
+  <div class="text-small">A — текущий объект · B — other · затемнение — пересечение · n — нормаль · Y направлена вниз</div>
+  <script>
+    (() => {
+      const root = document.getElementById('collision-normal-demo');
+      const svg = root.querySelector('svg');
+      const scene = root.querySelector('[data-scene]');
+      const xInput = root.querySelector('[data-axis="x"]');
+      const yInput = root.querySelector('[data-axis="y"]');
+      function restore(state) {
+        const s = state?.modelContent;
+        if (s && Number.isFinite(s.dx) && Number.isFinite(s.dy)) {
+          xInput.value = Math.max(1, Math.min(12, s.dx));
+          yInput.value = Math.max(1, Math.min(12, s.dy));
+        }
+      }
+      function draw() {
+        const dx = Number(xInput.value), dy = Number(yInput.value);
+        const w = root.clientWidth || 600;
+        const scale = Math.min((w - 38) / 22, 9.5);
+        const size = 10 * scale;
+        const ax = (w - (10 + dx) * scale) / 2;
+        const ay = (280 - (10 + dy) * scale) / 2;
+        const bx = ax + dx * scale, by = ay + dy * scale;
+        const ox = 10 - dx, oy = 10 - dy;
+        const contact = ox > 0 && oy > 0;
+        const horizontal = ox < oy;
+        root.querySelector('[data-value="x"]').textContent = dx;
+        root.querySelector('[data-value="y"]').textContent = dy;
+        root.querySelector('[data-result="overlap"]').textContent = `overlapX = ${ox}; overlapY = ${oy}`;
+        root.querySelector('[data-result="normal"]').textContent = contact ? `n = ${horizontal ? '(1, 0)' : '(0, 1)'}` : 'Пересечения нет';
+        let marks = `<rect class="a" x="${ax}" y="${ay}" width="${size}" height="${size}"/><rect class="b" x="${bx}" y="${by}" width="${size}" height="${size}"/>`;
+        if (contact) marks += `<rect class="overlap" x="${bx}" y="${by}" width="${ox * scale}" height="${oy * scale}"/>`;
+        marks += `<circle class="center" cx="${ax + size/2}" cy="${ay + size/2}" r="3"/><circle class="center" cx="${bx + size/2}" cy="${by + size/2}" r="3"/>`;
+        marks += `<text x="${ax+8}" y="${ay+21}">A</text><text x="${bx+size-22}" y="${by+size-10}">B</text>`;
+        if (contact) {
+          const sx = horizontal ? ax + size : bx + (ox * scale)/2;
+          const sy = horizontal ? by + (oy * scale)/2 : ay + size;
+          const ex = sx + (horizontal ? 32 : 0), ey = sy + (horizontal ? 0 : 32);
+          marks += `<line class="normal" x1="${sx}" y1="${sy}" x2="${ex}" y2="${ey}" marker-end="url(#collision-normal-arrow)"/><text x="${ex+7}" y="${ey-7}">n</text>`;
+        }
+        scene.innerHTML = marks;
+      }
+      function change() {
+        draw();
+        if (window.openai?.setWidgetState) window.openai.setWidgetState({modelContent:{dx:Number(xInput.value),dy:Number(yInput.value)}}).catch(() => {});
+      }
+      restore(window.openai?.widgetState);
+      xInput.addEventListener('input', change);
+      yInput.addEventListener('input', change);
+      window.addEventListener('openai:set_globals', e => { restore(e.detail?.globals?.widgetState); draw(); });
+      new ResizeObserver(draw).observe(root);
+      draw();
+    })();
+  </script>
+</div>

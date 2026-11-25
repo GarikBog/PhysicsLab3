@@ -1,0 +1,23 @@
+{
+  "source": "C:\\Users\\igorb\\Videos\\2026-11-24 16-28-20.mp4",
+  "start_seconds": 20,
+  "duration_seconds": 20,
+  "crop": {
+    "x": 269,
+    "y": 0,
+    "width": 698,
+    "height": 720
+  },
+  "output_size": [
+    698,
+    804
+  ],
+  "fps": 15,
+  "title": "CCD: заполненная сцена после исправления",
+  "subtitle": "60 Гц | Playback 1x | 23 подвижных и 7 неподвижных тел",
+  "timing": "Original playback timing preserved; no speed change; audio omitted",
+  "scene": "lab02_many_ccd",
+  "physics_hz": 60,
+  "playback_speed": 1,
+  "note": "Video documents this recorded run; panel timings are instantaneous, not averages."
+}

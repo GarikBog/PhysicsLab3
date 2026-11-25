@@ -10,7 +10,6 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -31,7 +30,6 @@
     <UseDebugLibraries>false</UseDebugLibraries>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-
   <PropertyGroup Label="UserMacros">
     <SfmlVersion>3.1.0</SfmlVersion>
     <SfmlVendorDir>$(MSBuildProjectDirectory)\..\vendor</SfmlVendorDir>
@@ -47,6 +45,7 @@
     <ClCompile>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <WarningLevel>Level4</WarningLevel>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>$(SfmlDir)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -56,10 +55,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Benchmark.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="PhyObject.cpp" />
+    <ClCompile Include="SimulationControls.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <SfmlModule Include="graphics;window;system" />
   </ItemGroup>
-
+  <ItemGroup>
+    <ClInclude Include="Benchmark.h" />
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Object.h" />
+    <ClInclude Include="PhyObject.h" />
+    <ClInclude Include="SimulationControls.h" />
+    <ClInclude Include="Scene.h" />
+  </ItemGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)' == 'Release'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Target Name="RestoreSfml" BeforeTargets="PrepareForBuild" Condition="'$(DesignTimeBuild)' != 'true'">
     <ItemGroup>
@@ -68,19 +88,11 @@
       <SfmlRequiredFile Include="@(SfmlModule->'$(SfmlDir)\bin\sfml-%(Identity)$(SfmlSuffix)-3.dll')" />
       <SfmlMissingFile Include="@(SfmlRequiredFile)" Condition="!Exists('%(SfmlRequiredFile.Identity)')" />
     </ItemGroup>
-    <DownloadFile Condition="'@(SfmlMissingFile)' != '' and !Exists('$(SfmlVendorDir)\$(SfmlArchive)')"
-                  SourceUrl="https://www.sfml-dev.org/files/$(SfmlArchive)"
-                  DestinationFolder="$(SfmlVendorDir)"
-                  DestinationFileName="$(SfmlArchive)" />
-    <Unzip Condition="'@(SfmlMissingFile)' != ''"
-           SourceFiles="$(SfmlVendorDir)\$(SfmlArchive)"
-           DestinationFolder="$(SfmlVendorDir)" />
-    <Error Condition="'@(SfmlMissingFile)' != '' and !Exists('%(SfmlMissingFile.Identity)')"
-           Text="Missing SFML file: %(SfmlMissingFile.Identity). Use the Visual C++ 17 (2022) 64-bit SDK." />
+    <DownloadFile Condition="'@(SfmlMissingFile)' != '' and !Exists('$(SfmlVendorDir)\$(SfmlArchive)')" SourceUrl="https://www.sfml-dev.org/files/$(SfmlArchive)" DestinationFolder="$(SfmlVendorDir)" DestinationFileName="$(SfmlArchive)" />
+    <Unzip Condition="'@(SfmlMissingFile)' != ''" SourceFiles="$(SfmlVendorDir)\$(SfmlArchive)" DestinationFolder="$(SfmlVendorDir)" />
+    <Error Condition="'@(SfmlMissingFile)' != '' and !Exists('%(SfmlMissingFile.Identity)')" Text="Missing SFML file: %(SfmlMissingFile.Identity). Use the Visual C++ 17 (2022) 64-bit SDK." />
   </Target>
   <Target Name="CopySfmlDlls" AfterTargets="Link" DependsOnTargets="RestoreSfml" Condition="'$(DesignTimeBuild)' != 'true'">
-    <Copy SourceFiles="@(SfmlModule->'$(SfmlDir)\bin\sfml-%(Identity)$(SfmlSuffix)-3.dll')"
-          DestinationFolder="$(OutDir)"
-          SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(SfmlModule->'$(SfmlDir)\bin\sfml-%(Identity)$(SfmlSuffix)-3.dll')" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
   </Target>
 </Project>

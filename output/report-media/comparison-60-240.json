@@ -1,0 +1,35 @@
+{
+  "source": "C:\\Users\\igorb\\Videos\\2026-11-24 15-27-27.mp4",
+  "fps": 30,
+  "width": 698,
+  "height": 804,
+  "clips": [
+    {
+      "name": "primitive60",
+      "start": 22.8,
+      "duration": 5.2,
+      "title": "Primitive 60 Гц: туннелирование"
+    },
+    {
+      "name": "ccd60",
+      "start": 35.8,
+      "duration": 4.2,
+      "title": "CCD 60 Гц: отражение от стенки"
+    },
+    {
+      "name": "multirate60",
+      "start": 52.5,
+      "duration": 5.0,
+      "title": "Multi-rate: база 60 Гц, снаряд 240 Гц"
+    },
+    {
+      "name": "primitive240",
+      "start": 67.8,
+      "duration": 5.2,
+      "title": "Primitive 240 Гц: отражение от стенки"
+    }
+  ],
+  "gif_frames": 588,
+  "gif_duration_seconds": 19.6,
+  "editing": "Only crop, titles, and concatenation. Original playback timing retained. Audio omitted."
+}

@@ -1,0 +1,68 @@
+PHYSICSLAB3_SNAPSHOT 1
+# Editable scene. Units: px, seconds, px/s. Mass 0 = fixed wall.
+time_step 0.0166666675
+mode CCD
+paused false
+
+object 0
+position 94.5667801 216.118393
+size 32 32
+mass 1
+velocity 10000 2.36435127
+force 0 0
+visible true
+end
+
+object 1
+position 33 154
+size 32 32
+mass 1
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 2
+position 0 0
+size 640 16
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 3
+position 0 344
+size 640 16
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 4
+position 0 16
+size 16 328
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 5
+position 624 16
+size 16 328
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
+
+object 6
+position 303 42
+size 13 292
+mass 0
+velocity 0 0
+force 0 0
+visible true
+end
